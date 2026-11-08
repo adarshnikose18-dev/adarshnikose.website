@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdarshNikose.com</title>
+<style>
+body {
+  margin: 0;
+  padding: 30px 15px;
+  font-family: Arial;
+  background: linear-gradient(135deg,#07152e,#243b67);
+  color: white;
+}
+header { text-align: center; padding: 25px; }
+h1 { color: #e8c777; }
+.form {
+  max-width: 450px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 18px;
+  background: white;
+  color: #172033;
+}
+label { display: block; margin-top: 18px; }
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 7px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+textarea { height: 90px; }
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background: #d4ad55;
+  border: 0;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+footer { text-align: center; margin: 25px; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>WELCOME TO</h1>
+<h1>ADARSHNIKOSE.COM</h1>
+<p>Your Journey Starts Here ✨</p>
+</header>
+
+<div class="form">
+<h2>Application Form</h2>
+<form id="myForm">
+<label>Full Name</label>
+<input id="name" required placeholder="Your full name">
+
+<label>Phone Number</label>
+<input id="phone" type="tel" required placeholder="Phone number">
+
+<label>Complete Address</label>
+<textarea id="address" required placeholder="Your address"></textarea>
+
+<label>
+<input type="checkbox" id="consent" required style="width:auto">
+I agree to share my details on WhatsApp.
+</label>
+
+<button type="submit">SUBMIT APPLICATION</button>
+</form>
+</div>
+
+<footer>© 2026 AdarshNikose.com</footer>
+
+<script>
+document.getElementById("myForm").onsubmit = function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+
+  const msg = `New Application - AdarshNikose.com
+Full Name: ${name}
+Phone: ${phone}
+Address: ${address}`;
+
+  window.open(
+    "https://wa.me/919359295670?text=" +
+    encodeURIComponent(msg),
+    "_blank"
+  );
+};
+</script>
+
+</body>
+</html>
