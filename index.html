@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to AdarshNikose.com</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      padding: 24px; font-family: Arial, sans-serif; color: #f8fafc;
+      background: radial-gradient(circle at top, #243b67, #0b1224 65%);
+    }
+    .wrap { width: min(100%, 560px); }
+    .brand { text-align: center; margin-bottom: 22px; }
+    .brand .mark { color: #e7c77a; font-size: 14px; letter-spacing: 5px; }
+    h1 { margin: 10px 0; font-size: clamp(30px, 7vw, 48px); }
+    .brand p { color: #cbd5e1; margin: 0; }
+    .panel {
+      background: #fff; color: #172033; border-radius: 22px;
+      padding: clamp(22px, 5vw, 34px); box-shadow: 0 22px 70px #0006;
+    }
+    h2 { margin: 0 0 7px; }
+    .hint { margin: 0 0 24px; color: #64748b; font-size: 14px; }
+    label { display: block; margin: 16px 0 7px; font-weight: 700; font-size: 14px; }
+    input, textarea {
+      width: 100%; border: 1px solid #cbd5e1; border-radius: 11px;
+      padding: 13px 14px; font: inherit; outline: none;
+    }
+    input:focus, textarea:focus { border-color: #b58a35; box-shadow: 0 0 0 3px #b58a3522; }
+    textarea { min-height: 95px; resize: vertical; }
+    .consent { display: flex; gap: 9px; align-items: flex-start; color: #475569; font-size: 12px; line-height: 1.5; margin: 17px 0; }
+    .consent input { width: auto; margin-top: 2px; }
+    button {
+      width: 100%; border: 0; border-radius: 12px; padding: 15px;
+      color: #111827; background: linear-gradient(135deg, #f0d58d, #c89b45);
+      font-weight: 800; font-size: 15px; cursor: pointer;
+    }
+    button:hover { filter: brightness(1.04); }
+    footer { text-align: center; color: #aab7ce; font-size: 12px; margin-top: 18px; }
+    .wa { color: #b8e6c4; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="brand">
+      <div class="mark">✦ OFFICIAL WEBSITE ✦</div>
+      <h1>WELCOME TO<br><span style="color:#e7c77a">ADARSHNIKOSE.COM</span></h1>
+      <p>Your Journey Starts Here</p>
+    </header>
+
+    <section class="panel">
+      <h2>Application Form</h2>
+      <p class="hint">Please enter your details carefully.</p>
+      <form id="applicationForm">
+        <label for="fullName">Full Name</label>
+        <input id="fullName" name="fullName" autocomplete="name" required maxlength="100" placeholder="Enter your full name">
+
+        <label for="phone">Phone Number</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" required
+               pattern="[0-9+\-\s()]{8,20}" placeholder="Enter your phone number">
+
+        <label for="address">Complete Address</label>
+        <textarea id="address" name="address" autocomplete="street-address" required maxlength="500"
+                  placeholder="Enter your complete address"></textarea>
+
+        <label class="consent">
+          <input type="checkbox" id="consent" required>
+          <span>I agree to share these details with Adarsh Nikose through WhatsApp for this application.</span>
+        </label>
+
+        <button type="submit">SUBMIT APPLICATION ON WHATSAPP</button>
+      </form>
+    </section>
+    <footer>© 2026 AdarshNikose.com · <span class="wa">WhatsApp: +91 9359295670</span></footer>
+  </main>
+
+  <script>
+    const WHATSAPP_NUMBER = "919359295670"; // India country code + phone number
+
+    document.getElementById("applicationForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("fullName").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const address = document.getElementById("address").value.trim();
+
+      const message =
+        "New Application - AdarshNikose.com%0A" +
+        "Full Name: " + name + "%0A" +
+        "Phone Number: " + phone + "%0A" +
+        "Address: " + address;
+
+      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(
+        "New Application - AdarshNikose.com\n" +
+        "Full Name: " + name + "\n" +
+        "Phone Number: " + phone + "\n" +
+        "Address: " + address
+      );
+
+      window.open(url, "_blank", "noopener");
+    });
+  </script>
+</body>
+</html>
